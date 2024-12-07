@@ -1,0 +1,295 @@
+/* Rest CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-size: 90%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", courier, monospace;
+}
+/* End Rest */
+
+/* Back background */
+
+html {
+  --s: 36px; /* control the size */
+  --c1: #000;
+  --c2: #d2d3d5;
+  --c3: #727c7e;
+
+  --g1: conic-gradient(
+    at calc(250% / 3) calc(50% / 3),
+    var(--c2) 60deg,
+    #0000 0 300deg,
+    var(--c1) 0
+  );
+  --g2: conic-gradient(at calc(50% / 3) 50%, #0000 75%, var(--c1) 0);
+  --g3: conic-gradient(at calc(100% / 3) 50%, #0000 75%, var(--c2) 0);
+  --g4: conic-gradient(
+    from 59deg at calc(200% / 3) calc(249% / 9),
+    var(--c3) 61deg,
+    #0000 62deg
+  );
+  --g5: conic-gradient(
+    from 60deg at 50% calc(250% / 3),
+    #f1f1f1 /*4th color*/ 60deg,
+    var(--c1) 0 120deg,
+    #0000 0
+  );
+  --_p: calc(9 * tan(30deg) * var(--s));
+  background: var(--g1) calc(-1 * var(--s)) 0,
+    var(--g1) calc(2 * var(--s)) var(--_p), var(--g2),
+    var(--g2) calc(3 * var(--s)) var(--_p), var(--g3),
+    var(--g3) calc(3 * var(--s)) var(--_p), var(--g4),
+    var(--g4) calc(3 * var(--s)) var(--_p), var(--g5) calc(3 * var(--s)) 0,
+    var(--g5) 0 var(--_p) var(--c3);
+  background-size: calc(6 * var(--s)) calc(2 * var(--_p));
+}
+/* End Back background */
+
+/* Color Background */
+@supports not (opacity: tan(1deg)) {
+  html {
+    --_p: calc(9 * 0.577 * var(--s));
+  }
+}
+
+Code html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+/* End Color Background */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.Automotive {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.lights-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 2rem;
+}
+
+.lights-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background-color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.lights-input {
+  display: none;
+}
+.lights-input:checked + .lights-label {
+  background-color: #fff;
+}
+.lights-input:checked + .lights-label::after {
+  transform: translateX(2.1rem);
+  background-color: green;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  min-width: 35rem;
+  overflow: hidden;
+  background-color: #ffffff72;
+  box-shadow: 0 0 0.5em rgb(18, 3, 147);
+}
+.top {
+  height: 10rem;
+
+  position: relative;
+
+  background: #ffffff;
+  filter: contrast(7);
+  --mask: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.481));
+}
+.top::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(#0008fc, transparent) 0 0/1em 1em space;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  content: "";
+}
+
+/* middel */
+.middle {
+  margin: auto;
+  text-align: center;
+  margin-top: -6rem;
+  z-index: 1;
+}
+
+.pic {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  margin: auto;
+  border: 0.5rem solid #0206ff;
+}
+.title {
+  font-size: 2.2rem;
+}
+.profession {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+/* End middel */
+
+/* bottom */
+.bottom {
+  /* width: 100%; */
+  display: flex;
+  margin-top: 3rem;
+  border-top: 0.1rem solid gray;
+}
+.column {
+  flex: 1;
+  padding: 1.5rem 1.5rem;
+  text-align: center;
+}
+.column:nth-child(2) {
+  border-right: 0.1rem solid gray;
+  border-left: 0.1rem solid gray;
+}
+.icons {
+  width: 2rem;
+  height: 2rem;
+  margin: auto;
+}
+.username {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+/* End bottom */
+
+@media (min-width: 375px) {
+  .card {
+    min-width: 26rem;
+    margin: auto;
+  }
+}
